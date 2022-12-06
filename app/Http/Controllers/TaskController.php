@@ -20,10 +20,26 @@ class TaskController extends Controller
         // モデルのレコードを全部取得
         // 変数$tasksに入れる
         // 複数のレコードを取得するとき (ステータスが0)
-        $tasks = Task::where('status', false)->get(); 
+        $tasks = Task::where('status', false)->get();
 
         // ビューファイルに、「tasks」という変数名で渡す
         return view('tasks.index', compact('tasks'));
+    }
+
+    // close一覧を実装
+    public function close()
+    {
+        $tasks = Task::where('status', true)->paginate(5);
+
+        // ビューファイルに、「tasks」という変数名で渡す
+        return view('close', compact('tasks'));
+    }
+    
+    // portfolio一覧を実装
+    public function portfolio(){
+        
+        // 単純にviewファイルを表示するだけ
+        return view('portfolio');
     }
 
     /**
@@ -86,7 +102,11 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd($id);
+        //GET tasks/{task}/edit
+        // $idに一致するレコードを取得することができる
+        $task = Task::find($id);
+        return view('tasks.index', compact('task'));
     }
 
     /**

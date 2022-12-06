@@ -14,7 +14,26 @@
 
 <body class="bg-light">
     <div class="p-3 mb-2 bg-secondary text-white">
-        <h1>todo</h1>
+        <!-- <h1>todo</h1> -->
+        <nav class="navbar navbar-expand-sm navbar-dark mt-3 mb-3">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">TODO</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{url('/close')}}">Close一覧ページ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/doc')}}">document</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/portfolio')}}">portfolio</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
     <main class="">
         <div class="">
@@ -41,7 +60,11 @@
                             追加する
                         </button>
                     </div>
-
+                    <h5>プログラミングのコツ</h5>
+                    <p>1.全体感をざっくり知る</p>
+                    <p>2.ゴールを決める</p>
+                    <p>3.成果物を作る</p>
+                    <p>4.最後にまとめる</p>
                 </form>
                 {{-- 追記 --}}
                 @if ($tasks->isNotEmpty())

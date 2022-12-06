@@ -20,4 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/doc', function () {
+    return view('doc');
+});
+
+// /docにgetアクセスがあった場合にTaskControllerのclose関数を実行
+Route::get('/close', [TaskController::class,'close']);
+
+Route::get('/portfolio', [TaskController::class,'portfolio']);
+
 Route::resource('tasks', TaskController::class);
+
+
